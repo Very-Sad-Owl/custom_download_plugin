@@ -1,0 +1,1 @@
+Plugin developed for downloading any remote resource by its URI.

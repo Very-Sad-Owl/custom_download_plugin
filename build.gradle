@@ -1,0 +1,33 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+group 'ru.clevertec.tasks.olga.plugin'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+
+gradlePlugin {
+    plugins {
+        downloadPlugin {
+            id = 'ru.clevertec.tasks.olga.plugin.resource_downloader_plugin'
+            implementationClass = "ru.clevertec.tasks.olga.plugin.downloader.DownloaderPlugin"
+        }
+    }
+}
